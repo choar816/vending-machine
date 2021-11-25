@@ -1,0 +1,302 @@
+@charset "utf-8";
+@mixin layout-left {
+    width: 65%;
+    padding: 6px 10px;
+    box-sizing: border-box;
+    border-radius: 5px;
+}
+@mixin layout-right {
+    width: 30%;
+    font-size: 13px;
+    padding: 6px 8px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
+}
+@mixin layout-list-items {
+    overflow-y: scroll;
+    padding: 12px;
+    border: 1px solid #BDBDBD;
+    background-color: #EAE8FE;
+
+    li {
+        overflow: hidden;
+        padding: 8px;
+        border-radius: 5px;
+        background-color: #fff;
+        box-sizing: border-box;
+        & + li {
+            margin-top: 6px;
+        }
+    }
+
+    .img-item, .txt-item {
+        float: left;
+    }
+    .img-item {
+        width: 18px;
+        height: 33px;
+    }
+    .txt-item {
+        margin-left: 10px;
+        line-height: 33px;
+        font-size: 9px;
+    }
+    .num-counter {
+        float: right;
+        display: flex;
+        width: 30px;
+        height: 30px;
+        box-sizing: border-box;
+        border: 1px solid #BDBDBD;
+        border-radius: 5px;
+        justify-content: center;
+        align-items: center;
+        font-size: 14px;
+    }
+}
+
+/* reset */
+.img-item {
+    display: block;
+}
+
+/* util */
+/* ir은 img-replace */
+.ir {
+    display: block;
+    overflow: hidden;
+    position: absolute;
+    text-indent: -9999px;
+    line-height: 0;
+    font-size: 1px;
+    color: transparent;
+}
+
+/* layout */
+body {
+    background-color: #EAE8FE;
+}
+
+/* 타이틀 스타일링 */
+.tit-app {
+    top: 0;
+    width: 100%;
+    max-width: 386px;
+    height: 180px;
+    background: no-repeat center / 100% 100% url(../img/Logo_img.png);
+}
+
+#app {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 0 28px;
+    padding-top: 247px;
+    font-family: 'Noto Sans KR', sans-serif;
+
+}
+
+.vending-machine, .my-info {
+    width: 360px;
+    background-color: #fff;
+    box-sizing: border-box;
+}
+
+.vending-machine {
+    position: relative;
+    padding: 31px 27px 28px;
+
+    .list-item {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+
+        li {
+            position: relative;
+            width: 30%;
+            height: 130px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
+
+            &.sold-out {
+                pointer-events: none;
+            }
+
+            &:active::before{
+                display: block;
+                position: absolute;
+                content: '';
+                width: 100%;
+                height: 100%;
+                top: 0px;
+                left: 0px;
+                border: 3px solid #6327FE;
+                border-radius: 10px;
+                box-sizing: border-box;
+            }
+
+            &:nth-child(3)~li {
+                margin-top: 12px;
+            }
+
+            .img-item {
+                width: 36px;
+                height: 65px;
+                margin: 0 auto;
+            }
+        }
+    }
+
+    .tit-item {
+        display: block;
+        font-size: 9px;
+        margin: 5px auto;
+    }
+
+    .btn-item {
+        display: block;
+        width: 100%;
+        height: 100%;
+
+        .txt-item {
+            display: inline-block;
+            font-size: 12px;
+            padding: 5px 15px;
+            background-color: #6327FE;
+            border-radius: 50px;
+            color: #fff;
+        }
+    }
+
+    .cont-return, .cont-put, .cont-get {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 12px;
+    }
+
+    // 1,2번
+    .cont-return {
+        margin-top: 20px;
+
+        .info-balance {
+            @include layout-left;
+            overflow: hidden;
+            font-size: 14px;
+            line-height: 20px;
+            background-color: #EAE8FE;
+            .txt-balance {
+                float: right;
+            }
+        }
+
+        .btn-return {
+            @include layout-right;
+        }
+    }
+
+    // 3,4번
+    .cont-put {
+        .inp-put {
+            @include layout-left;
+            border: 1px solid #BDBDBD;
+            box-sizing: border-box;
+            line-height: 18px;
+        }
+
+        .btn-put {
+            @include layout-right;
+        }
+    }
+
+    // 5,6번
+    .cont-get {
+        .list-item-staged {
+            @include layout-left;
+            @include layout-list-items;
+            height: 106px;
+        }
+
+        .btn-get {
+            @include layout-right;
+            font-weight: 700;
+            background-color: #6327FE;
+            color: #fff;
+        }
+    }
+}
+
+.my-info {
+    background-color: #EAE8FE;
+
+    .cont-mymoney {
+        background-color: #fff;
+        padding: 9px 27px;
+
+        .info-mymoney {
+            background-color: #EAE8FE;
+            padding: 6px 10px;
+            font-size: 14px;
+            line-height: 20px;
+            background-color: #EAE8FE;
+            border-radius: 5px;
+
+            .txt-mymoney {
+                float: right;
+                font-weight: 700;
+            }
+        }
+    }
+
+    .cont-myitems {
+        margin-top: 20px;
+        padding: 25px 27px;
+        background-color: #fff;
+
+        .tit-myitem {
+            display: block;
+            text-align: center;
+            margin-bottom: 13px;
+            font-size: 14px;
+            font-weight: 700;
+        }
+        .list-item-staged {
+            @include layout-list-items;
+            height: 364px;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        .txt-total {
+            display: block;
+            text-align: right;
+            font-size: 12px;
+            margin-top: 6px;
+        }
+    }
+}
+
+
+
+/* 기기의 너비가 320px 이상 480px 이하*/
+/* 최소 1px 당 2개의 화소 */
+@media screen
+ and (min-device-width: 320px) 
+ and (max-device-width: 480px) 
+ and (-webkit-min-device-pixel-ratio: 2) {
+    body {
+        background-color: #fff;
+    }
+
+    #app {
+        padding-top: 80px;
+        .tit-app {
+            width: 166px;
+            height: 71px;
+        }
+        .my-info .cont-myitems {
+            margin-top: 0;
+            padding: 31px 27px 32px;
+        }
+    }
+}

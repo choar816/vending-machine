@@ -1,0 +1,384 @@
+@charset "UTF-8";
+/* reset */
+.img-item {
+  display: block;
+}
+
+/* util */
+/* ir은 img-replace */
+.ir {
+  display: block;
+  overflow: hidden;
+  position: absolute;
+  text-indent: -9999px;
+  line-height: 0;
+  font-size: 1px;
+  color: transparent;
+}
+
+/* layout */
+body {
+  background-color: #EAE8FE;
+}
+
+/* 타이틀 스타일링 */
+.tit-app {
+  top: 0;
+  width: 100%;
+  max-width: 386px;
+  height: 180px;
+  background: no-repeat center/100% 100% url(../img/Logo_img.png);
+}
+
+#app {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  gap: 0 28px;
+  padding-top: 247px;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+.vending-machine, .my-info {
+  width: 360px;
+  background-color: #fff;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.vending-machine {
+  position: relative;
+  padding: 31px 27px 28px;
+}
+
+.vending-machine .list-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.vending-machine .list-item li {
+  position: relative;
+  width: 30%;
+  height: 130px;
+  border-radius: 10px;
+  -webkit-box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
+          box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
+}
+
+.vending-machine .list-item li.sold-out {
+  pointer-events: none;
+}
+
+.vending-machine .list-item li:active::before {
+  display: block;
+  position: absolute;
+  content: '';
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  left: 0px;
+  border: 3px solid #6327FE;
+  border-radius: 10px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.vending-machine .list-item li:nth-child(3) ~ li {
+  margin-top: 12px;
+}
+
+.vending-machine .list-item li .img-item {
+  width: 36px;
+  height: 65px;
+  margin: 0 auto;
+}
+
+.vending-machine .tit-item {
+  display: block;
+  font-size: 9px;
+  margin: 5px auto;
+}
+
+.vending-machine .btn-item {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.vending-machine .btn-item .txt-item {
+  display: inline-block;
+  font-size: 12px;
+  padding: 5px 15px;
+  background-color: #6327FE;
+  border-radius: 50px;
+  color: #fff;
+}
+
+.vending-machine .cont-return, .vending-machine .cont-put, .vending-machine .cont-get {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-top: 12px;
+}
+
+.vending-machine .cont-return {
+  margin-top: 20px;
+}
+
+.vending-machine .cont-return .info-balance {
+  width: 65%;
+  padding: 6px 10px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-radius: 5px;
+  overflow: hidden;
+  font-size: 14px;
+  line-height: 20px;
+  background-color: #EAE8FE;
+}
+
+.vending-machine .cont-return .info-balance .txt-balance {
+  float: right;
+}
+
+.vending-machine .cont-return .btn-return {
+  width: 30%;
+  font-size: 13px;
+  padding: 6px 8px;
+  border-radius: 5px;
+  -webkit-box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
+          box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
+}
+
+.vending-machine .cont-put .inp-put {
+  width: 65%;
+  padding: 6px 10px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-radius: 5px;
+  border: 1px solid #BDBDBD;
+  box-sizing: border-box;
+  line-height: 18px;
+}
+
+.vending-machine .cont-put .btn-put {
+  width: 30%;
+  font-size: 13px;
+  padding: 6px 8px;
+  border-radius: 5px;
+  -webkit-box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
+          box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
+}
+
+.vending-machine .cont-get .list-item-staged {
+  width: 65%;
+  padding: 6px 10px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-radius: 5px;
+  overflow-y: scroll;
+  padding: 12px;
+  border: 1px solid #BDBDBD;
+  background-color: #EAE8FE;
+  height: 106px;
+}
+
+.vending-machine .cont-get .list-item-staged li {
+  overflow: hidden;
+  padding: 8px;
+  border-radius: 5px;
+  background-color: #fff;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.vending-machine .cont-get .list-item-staged li + li {
+  margin-top: 6px;
+}
+
+.vending-machine .cont-get .list-item-staged .img-item, .vending-machine .cont-get .list-item-staged .txt-item {
+  float: left;
+}
+
+.vending-machine .cont-get .list-item-staged .img-item {
+  width: 18px;
+  height: 33px;
+}
+
+.vending-machine .cont-get .list-item-staged .txt-item {
+  margin-left: 10px;
+  line-height: 33px;
+  font-size: 9px;
+}
+
+.vending-machine .cont-get .list-item-staged .num-counter {
+  float: right;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 30px;
+  height: 30px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border: 1px solid #BDBDBD;
+  border-radius: 5px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 14px;
+}
+
+.vending-machine .cont-get .btn-get {
+  width: 30%;
+  font-size: 13px;
+  padding: 6px 8px;
+  border-radius: 5px;
+  -webkit-box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
+          box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
+  font-weight: 700;
+  background-color: #6327FE;
+  color: #fff;
+}
+
+.my-info {
+  background-color: #EAE8FE;
+}
+
+.my-info .cont-mymoney {
+  background-color: #fff;
+  padding: 9px 27px;
+}
+
+.my-info .cont-mymoney .info-mymoney {
+  background-color: #EAE8FE;
+  padding: 6px 10px;
+  font-size: 14px;
+  line-height: 20px;
+  background-color: #EAE8FE;
+  border-radius: 5px;
+}
+
+.my-info .cont-mymoney .info-mymoney .txt-mymoney {
+  float: right;
+  font-weight: 700;
+}
+
+.my-info .cont-myitems {
+  margin-top: 20px;
+  padding: 25px 27px;
+  background-color: #fff;
+}
+
+.my-info .cont-myitems .tit-myitem {
+  display: block;
+  text-align: center;
+  margin-bottom: 13px;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.my-info .cont-myitems .list-item-staged {
+  overflow-y: scroll;
+  padding: 12px;
+  border: 1px solid #BDBDBD;
+  background-color: #EAE8FE;
+  height: 364px;
+  border-radius: 5px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.my-info .cont-myitems .list-item-staged li {
+  overflow: hidden;
+  padding: 8px;
+  border-radius: 5px;
+  background-color: #fff;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.my-info .cont-myitems .list-item-staged li + li {
+  margin-top: 6px;
+}
+
+.my-info .cont-myitems .list-item-staged .img-item, .my-info .cont-myitems .list-item-staged .txt-item {
+  float: left;
+}
+
+.my-info .cont-myitems .list-item-staged .img-item {
+  width: 18px;
+  height: 33px;
+}
+
+.my-info .cont-myitems .list-item-staged .txt-item {
+  margin-left: 10px;
+  line-height: 33px;
+  font-size: 9px;
+}
+
+.my-info .cont-myitems .list-item-staged .num-counter {
+  float: right;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 30px;
+  height: 30px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border: 1px solid #BDBDBD;
+  border-radius: 5px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 14px;
+}
+
+.my-info .cont-myitems .txt-total {
+  display: block;
+  text-align: right;
+  font-size: 12px;
+  margin-top: 6px;
+}
+
+/* 기기의 너비가 320px 이상 480px 이하*/
+/* 최소 1px 당 2개의 화소 */
+@media screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) {
+  body {
+    background-color: #fff;
+  }
+  #app {
+    padding-top: 80px;
+  }
+  #app .tit-app {
+    width: 166px;
+    height: 71px;
+  }
+  #app .my-info .cont-myitems {
+    margin-top: 0;
+    padding: 31px 27px 32px;
+  }
+}
+/*# sourceMappingURL=style_sass.css.map */
